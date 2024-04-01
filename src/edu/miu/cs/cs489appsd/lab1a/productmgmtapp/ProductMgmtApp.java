@@ -24,7 +24,7 @@ public class ProductMgmtApp {
         // Print products in XML format
         System.out.println("\nPrinted in XML format:");
         for (Product product : products) {
-            System.out.printf("<Product>%n  <productId>%d</productId>%n  <productName>%s</productName>%n  <expiryDate>%s</expiryDate>%n  <quantity>%d</quantity>%n  <price>%.2f</price>%n</Product>%n",
+            System.out.printf("<Product>%n  <productId>%d</productId>  <productName>%s</productName>  <expiryDate>%s</expiryDate>  <quantity>%d</quantity>  <price>%.2f</price>%n</Product>%n",
                     product.getProductId(), product.getProductName(), product.getExpiryDate(), product.getQuantity(), product.getPrice());
         }
 
