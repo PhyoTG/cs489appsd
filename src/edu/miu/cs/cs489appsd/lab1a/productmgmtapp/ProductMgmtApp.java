@@ -2,6 +2,9 @@ package edu.miu.cs.cs489appsd.lab1a.productmgmtapp;
 
 import edu.miu.cs.cs489appsd.lab1a.productmgmtapp.model.Product;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class ProductMgmtApp {
     public static void main(String[] args) {
         Product[] productsData = {
@@ -14,6 +17,7 @@ public class ProductMgmtApp {
     }
 
     public static void printProducts(Product[] products) {
+        Arrays.sort(products, Comparator.comparing(p -> p.getProductName()));
         // Print products in JSON format
         System.out.println("Printed in JSON format:");
         for (Product product : products) {
