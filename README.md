@@ -14,3 +14,6 @@ Task4
 ![Lab1a-task4.png](Screenshot%2FLab1a-task4.png)
 # employee
 Lab1b
+
+Lab2
+![Lab2.png](Screenshot%2Flab2.png)
