@@ -2,16 +2,28 @@ package edu.miu.cs489appsd.lab1b;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+import edu.miu.cs489appsd.lab1b.model.Employee;
+import edu.miu.cs489appsd.lab1b.model.PensionPlan;
 
+import java.lang.reflect.Type;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import edu.miu.cs489appsd.lab1b.model.Employee;
-import edu.miu.cs489appsd.lab1b.model.PensionPlan;
-
-public class App {
+/**
+ * Just doing lab2b.
+ * see in assignment tab
+ */
+final class App {
+    /**
+     * Main Method.
+     */
     public static void main(String[] args) {
         List<Employee> employees = new ArrayList<>();
         employees.add(new Employee(1, "Daniel", "Agar", "2018-01-17", 105945.50));
@@ -27,7 +39,9 @@ public class App {
 
         System.out.println("List of Employees (including Pension Plan data):");
         // Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        Gson gson = new Gson();
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(LocalDate.class, new LocalDateSerializer());
+        Gson gson = gsonBuilder.create();
         String json = gson.toJson(employees);
         System.out.println(json);
 
@@ -54,5 +68,15 @@ public class App {
             LocalDate nextMonthLastDay) {
         LocalDate employmentDate = employee.getEmploymentDate();
         return employmentDate.isBefore(nextMonthLastDay) && employmentDate.plusYears(5).isBefore(nextMonthFirstDay);
+    }
+
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+    static class LocalDateSerializer implements JsonSerializer<LocalDate> {
+
+        @Override
+        public JsonElement serialize(LocalDate src, Type typeOfSrc, JsonSerializationContext context) {
+            return new JsonPrimitive(formatter.format(src));
+        }
     }
 }

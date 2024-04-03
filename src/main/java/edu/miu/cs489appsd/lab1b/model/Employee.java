@@ -1,7 +1,14 @@
+/**
+* models employee
+*/
+
 package edu.miu.cs489appsd.lab1b.model;
 
 import java.time.LocalDate;
 
+/**
+ * models employee.
+ */
 public class Employee {
     private long employeeId;
     private String firstName;
@@ -9,6 +16,17 @@ public class Employee {
     private LocalDate employmentDate;
     private double yearlySalary;
     private PensionPlan pensionPlan;
+
+    /**
+     * constructor employee.
+     */
+    public Employee(long employeeId, String firstName, String lastName, String employmentDate, double yearlySalary) {
+        this.employeeId = employeeId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.employmentDate = LocalDate.parse(employmentDate);
+        this.yearlySalary = yearlySalary;
+    }
 
     public long getEmployeeId() {
         return employeeId;
@@ -54,26 +72,18 @@ public class Employee {
         return pensionPlan;
     }
 
-    public Employee(long employeeId, String firstName, String lastName, String employmentDate, double yearlySalary) {
-        this.employeeId = employeeId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.employmentDate = LocalDate.parse(employmentDate);
-        this.yearlySalary = yearlySalary;
-    }
-
     public void setPensionPlan(PensionPlan pensionPlan) {
         this.pensionPlan = pensionPlan;
     }
 
     @Override
     public String toString() {
-        return "|" +
-                "ID=" + employeeId +
-                "| First Name='" + firstName + '\'' +
-                "| Last Name='" + lastName + '\'' +
-                "| Employment Date=" + employmentDate +
-                "| Yearly Salary=" + yearlySalary +
-                "| Pension Plan=" + pensionPlan;
+        return "|"
+                + "ID=" + employeeId
+                + "| First Name='" + firstName + '\''
+                + "| Last Name='" + lastName + '\''
+                + "| Employment Date=" + employmentDate
+                + "| Yearly Salary=" + yearlySalary
+                + "| Pension Plan=" + pensionPlan;
     }
 }
