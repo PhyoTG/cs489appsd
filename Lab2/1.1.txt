@@ -1,7 +1,7 @@
 1. The system should have roles - Patient, Office Manager, Dentist and System Admin
 2. The System should allow to sign in with the respective roles
 3. Office Manager can control CRUD operations for Dentists and Patients 
-4. Patients should see list to show avaliable dentists and request Appointment.
+4. Patients should see list to show available dentists and request Appointment.
 5. The system should have Appointment records controlled by Office Manager
 6. Patients should see upcoming appointments and assigned dentists.
 7. Dentists should see their assigned appointments

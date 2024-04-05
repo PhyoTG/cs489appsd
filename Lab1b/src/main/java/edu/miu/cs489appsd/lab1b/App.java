@@ -27,7 +27,7 @@ final class App {
     public static void main(String[] args) {
         List<Employee> employees = new ArrayList<>();
         employees.add(new Employee(1, "Daniel", "Agar", "2018-01-17", 105945.50));
-        employees.add(new Employee(2, "Benard", "Shaw", "2022-10-03", 197750.00));
+        employees.add(new Employee(2, "Bernard", "Shaw", "2022-10-03", 197750.00));
         employees.add(new Employee(3, "Carly", "Agar", "2014-05-16", 842000.75));
         employees.add(new Employee(4, "Wesley", "Schneider", "2018-11-02", 74500.00));
 
