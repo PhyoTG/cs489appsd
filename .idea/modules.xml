@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/cs489appsd.iml" filepath="$PROJECT_DIR$/.idea/cs489appsd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab3/elibrary/elibrary.iml" filepath="$PROJECT_DIR$/Lab3/elibrary/elibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab1b/employee.iml" filepath="$PROJECT_DIR$/Lab1b/employee.iml" />
+    </modules>
+  </component>
+</project>

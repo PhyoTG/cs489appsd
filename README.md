@@ -17,3 +17,8 @@ Lab1b
 
 Lab2
 ![Lab2.png](Screenshot%2Flab2.png)
+
+Lab3
+![Lab3.png](Screenshot%2FLab3.png)
+
+

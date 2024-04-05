@@ -1,0 +1,20 @@
+1.What is Spring?
+Spring is the framework for Java to build Enterprise Solutions and it helps to simplify the complex processes of enterprise Java Application Development. Spring can help by providing modules for handling database transactions, Security or web Development. It provides the development to go smoothly with its builtin modules. 
+
+2.What is Spring Boot?
+Spring Boot is the open source Microservice-based Java web framework which is offered by Spring. Spring Boot is the enhanced version for Spring to build the Spring-based Apllication. For Example, you can create the whole web application with less configurations which is auto config capabilities.
+
+3.What is the relation between Spring platform and Spring Boot?
+The Spring Boot is the advanced version for Spring and Spring Boot adds addtional features to speed up the development process. For example, Spring creates a web application typically needing two dependencies: spring-web and spring-webmvc.
+Meanwhile, Spring Boot requires only one dependency, spring-boot-starter-web. Other dependencies are added automatically during build time.
+
+4.What is the relation between Spring platform and Spring framework?
+The Spring platform comprises the complete Spring ecosystem, encompassing the core Spring framework along with its diverse extensions and projects like Spring Boot, Spring Security, Spring Data, and others. Conversely, the Spring framework serves as the foundational element of the Spring platform, delivering essential functionalities like dependency injection, aspect-oriented programming, and beyond.
+
+5.What is Dependency Injection and how is it done in the Spring platform/framework?
+DI is the patterns for providing the objects with their dependencies instead of creating dependent objects.
+DI provides loose coupling between components and allows for more flexible and maintainable code.
+We can do DI with constructor Injection or Setter Injection.
+ 
+6.What is Inversion of Control (IoC) and how is it related to Spring?
+The design idea known as Inversion of Control (IoC) states that the framework controls the program's execution flow while managing the object lifetime. In order to implement IoC, Spring offers an ApplicationContext container, which controls the creation, configuration, and injection of dependencies into objects, or beans. This makes it easy to test and maintain and permits loose connection between components.
