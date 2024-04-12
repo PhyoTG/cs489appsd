@@ -27,3 +27,6 @@ Lab4
 Lab5
 ![Lab5.png](Lab5%2FLab5.png)
 
+Lab6
+![Lab6.png](Screenshot%2FLab6.png)
+

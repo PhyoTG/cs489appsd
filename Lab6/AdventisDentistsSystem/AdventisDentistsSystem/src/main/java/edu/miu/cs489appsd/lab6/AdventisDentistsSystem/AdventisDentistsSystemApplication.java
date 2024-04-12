@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @SpringBootApplication
 public class AdventisDentistsSystemApplication implements CommandLineRunner {
@@ -57,7 +58,15 @@ public class AdventisDentistsSystemApplication implements CommandLineRunner {
 		addingNewAppointment(LocalDate.of(2013,9,14), "16:30", surgery15,patient105,dentist3);
 		addingNewAppointment(LocalDate.of(2013,9,15), "18:00", surgery13,patient110,dentist3);
 
-		appointmentService.getAllAppointments().forEach(System.out::println);
+		List<Appointment> appointmentList = appointmentService.getAllAppointments();
+		appointmentList.forEach((appointment -> {
+			System.out.print(appointment.getDentist().getFirstname() +" "+ appointment.getDentist().getLastname());
+			System.out.print("| "+ appointment.getPatient().getPno());
+			System.out.print("| "+ appointment.getPatient().getFirstname() +" "+ appointment.getPatient().getLastname());
+			System.out.print("| "+ appointment.getDate() +" "+ appointment.getTime());
+			System.out.print("| "+ appointment.getSurgery().getSno());
+			System.out.println("");
+		}));
 	}
 
 	private Surgery addingNewSurgery(String id,String name, String phone, Address address) {
