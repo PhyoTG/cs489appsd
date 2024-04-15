@@ -89,8 +89,8 @@ public class AdventisDentistsSystemApplication implements CommandLineRunner {
 	}
 
 	private Patient addingNewPatient(String patientNumber,String fname, String lname, String phone, LocalDate dob) {
-		var patient = new Patient(null,patientNumber,fname,lname,phone,dob);
-		return patientService.addNewPatient(patient);
+		var createpatient = new Patient(null,patientNumber,fname,lname,phone,dob);
+		return patientService.addNewPatient(createpatient);
 	}
 
 	private Appointment addingNewAppointment(LocalDate date, String time,Surgery surgery,Patient patient, Dentist dentist) {

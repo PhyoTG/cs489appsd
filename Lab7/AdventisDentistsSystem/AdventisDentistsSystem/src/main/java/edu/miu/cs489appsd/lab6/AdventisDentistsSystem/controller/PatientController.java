@@ -1,16 +1,19 @@
 package edu.miu.cs489appsd.lab6.AdventisDentistsSystem.controller;
 
+import edu.miu.cs489appsd.lab6.AdventisDentistsSystem.dto.address.AddressResponse2;
+import edu.miu.cs489appsd.lab6.AdventisDentistsSystem.dto.patient.PatientRequest;
 import edu.miu.cs489appsd.lab6.AdventisDentistsSystem.dto.patient.PatientResponse;
 import edu.miu.cs489appsd.lab6.AdventisDentistsSystem.dto.patient.PatientResponse2;
+import edu.miu.cs489appsd.lab6.AdventisDentistsSystem.exception.PatientNotFoundException;
 import edu.miu.cs489appsd.lab6.AdventisDentistsSystem.model.Address;
 import edu.miu.cs489appsd.lab6.AdventisDentistsSystem.model.Patient;
 import edu.miu.cs489appsd.lab6.AdventisDentistsSystem.service.PatientService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -28,7 +31,30 @@ public class PatientController {
     }
 
     @GetMapping(value = "/get/{patientId}")
-    public ResponseEntity<PatientResponse2> getPatientById(@PathVariable Integer patientId){
+    public ResponseEntity<PatientResponse2> getPatientById(@PathVariable Integer patientId) throws PatientNotFoundException {
         return ResponseEntity.ok(patientService.getPatientId(patientId));
+    }
+
+    @PostMapping(value = "/register")
+    public ResponseEntity<PatientResponse2> registerNewPublisher(@RequestBody @Valid PatientRequest patientRequest) {
+        return new ResponseEntity<>(patientService.addNewPatient(patientRequest), HttpStatus.CREATED);
+    }
+
+    @PutMapping(value = "/update/{patientId}")
+    public ResponseEntity<PatientResponse2> updatePatient(@PathVariable Integer patientId,
+                                                     @RequestBody PatientRequest editedPublisher) throws PatientNotFoundException {
+        return new ResponseEntity<PatientResponse2>(patientService.updatePatient(patientId, editedPublisher),
+                HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/delete/{patientId}")
+    public ResponseEntity<Void> deletePatientById(@PathVariable Integer patientId) {
+        patientService.deletePatientById(patientId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping(value = "/search/{searchString}")
+    public ResponseEntity<List<PatientResponse2>> searchPatient(@PathVariable String searchString) {
+        return ResponseEntity.ok(patientService.searchPatient(searchString));
     }
 }

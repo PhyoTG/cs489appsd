@@ -30,3 +30,28 @@ Lab5
 Lab6
 ![Lab6.png](Screenshot%2FLab6.png)
 
+Lab7
+1. HTTP GET request: http://localhost:8080/adsweb/api/v1/patient/list - Displays the list of all Patients, including their primaryAddresses, sorted in ascending order by their lastName, in JSON format.
+   ![Lab7-1.png](Screenshot%2FLab7-1.png)
+
+2. HTTP GET request: http://localhost:8080/adsweb/api/v1/patient/get/1 - Displays the data for Patient whose PatientId is 1 including the primaryAddress, in JSON format. Also, make sure to implement appropriate exception handling, for where patientId is invalid and not found.
+![Lab7-2.png](Screenshot%2FLab7-2.png)
+
+3. HTTP POST request: http://localhost:8080/adsweb/api/v1/patient/register - Register a new Patient into the system. Note: You supply the correct/appropriate Patient data in JSON format
+![Lab7-3.png](Screenshot%2FLab7-3.png)
+
+4. HTTP PUT request: http://localhost:8080/adsweb/api/v1/patient/update/1 - Retrieves and updates Patient data for the patient whose patientId is 1 (or any other valid patientId). Also, make sure to implement appropriate exception handling, for where patientId is invalid and not found.
+![Lab7-4.png](Screenshot%2FLab7-4.png)
+![Lab7-4-withException.png](Screenshot%2FLab7-4-withException.png)
+
+5. HTTP DELETE request: http://localhost:8080/adsweb/api/v1/patient/delete/1 - Deletes the Patient data for the patient whose patientId is 1 (or any other valid patientId).
+![Lab7-5.png](Screenshot%2FLab7-5.png)
+
+6. http://localhost:8080/adsweb/api/v1/patient/search/{searchString} - Queries all the Patient data for the patient(s) whose data matches the input searchString.
+![Lab7-6.png](Screenshot%2FLab7-6.png)
+
+7. HTTP GET request: http://localhost:8080/adsweb/api/v1/address/list - Displays the list of all Addresses, including the Patient data, sorted in ascending order by their city, in JSON format.
+![Lab7-7.png](Screenshot%2FLab7-7.png)
+
+
+
