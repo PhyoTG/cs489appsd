@@ -2,7 +2,9 @@
 # ProductMgmtApp
 
 Task1
-![Lab1a-task1.png](Screenshot%2FLab1a-task1.png)
+![Lab1a-t
+a
+sk1.png](Screenshot%2FLab1a-task1.png)
 
 Task2
 ![Lab1a-task2.png](Screenshot%2FLab1a-task2.png)
@@ -53,5 +55,15 @@ Lab7
 7. HTTP GET request: http://localhost:8080/adsweb/api/v1/address/list - Displays the list of all Addresses, including the Patient data, sorted in ascending order by their city, in JSON format.
 ![Lab7-7.png](Screenshot%2FLab7-7.png)
 
+Lab9
+1. Sign Up
+![Lab9-signup.png](Screenshot%2FLab9-signup.png)
+2. Login
+![Lab9-login.png](Screenshot%2FLab9-login.png)
+3. No Auth
+![Lab9-noAuth.png](Screenshot%2FLab9-noAuth.png)
+4. With Auth
+![Lab9-withAuth.png](Screenshot%2FLab9-withAuth.png)
+![Lab9-withAuth1.png](Screenshot%2FLab9-withAuth1.png)
 
 
