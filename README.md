@@ -68,7 +68,7 @@ Lab9
 
 Lab10-1
 ![Lab10-1a.png](Screenshot%2FLab10-1a.png)
-![Lab10-1b.png](Screenshot%2FLab10-1b.png
+![Lab10-1b.png](Screenshot%2FLab10-1b.png)
 ![Lab10-1c.png](Screenshot%2FLab10-1c.png)
 
 Lab10-2
