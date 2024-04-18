@@ -8,6 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +18,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+
+import static org.springframework.http.HttpStatus.*;
 
 @Component
 public class JWTAuthFilter extends OncePerRequestFilter {
@@ -34,8 +37,12 @@ public class JWTAuthFilter extends OncePerRequestFilter {
         String jwtToken = null;
         String username = null;
         if(authorizationHeader == null){
-            throw new BadCredentialsException("Unauthorized Attempt");
+//            throw new BadCredentialsException("Unauthorized Attempt");
+            response.setStatus(401);
+            response.getWriter().print("Unauthorized Attempt");
+            return;
         }
+
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             jwtToken = authorizationHeader.substring(7);
             username = jwtMgmtUtilityService.extractUsername(jwtToken);

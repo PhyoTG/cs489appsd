@@ -10,10 +10,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-public class UserAuthExceptionHandler extends Throwable {
-    @ExceptionHandler(BadCredentialsException.class)
+public class UserAuthExceptionHandler{ // extends Throwable {
+    @ExceptionHandler(Exception.class)
+    //@ExceptionHandler(BadCredentialsException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public Map<String, String> handleFailedAuth(BadCredentialsException badCredentialsException) {
+    public Map<String, String> handleFailedAuth(Exception badCredentialsException) {
         var errorMsgMap = new HashMap<String, String>();
         errorMsgMap.put("errorMsg", badCredentialsException.getMessage());
         return errorMsgMap;
