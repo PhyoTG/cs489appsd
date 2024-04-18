@@ -5,6 +5,7 @@ import edu.miu.cs489appsd.lab6.AdventisDentistsSystem.filter.JWTAuthFilter;
 import edu.miu.cs489appsd.lab6.AdventisDentistsSystem.service.impl.ADSUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -16,11 +17,12 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
-public class ADSWebAPISecurityConfig {
+public class ADSWebAPISecurityConfig{
     private ADSUserDetailsService adsUserDetailsService;
     private JWTAuthFilter jwtAuthFilter;
 
@@ -29,8 +31,10 @@ public class ADSWebAPISecurityConfig {
         this.jwtAuthFilter = jwtAuthFilter;
     }
 
+
+
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception, UserAuthExceptionHandler {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
@@ -44,6 +48,8 @@ public class ADSWebAPISecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+//                .exceptionHandling(configurer -> configurer
+//                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
                 .build();
     }
 
