@@ -1,0 +1,52 @@
+#version: '3.3'
+#services:
+#  db:
+#    image: mysql:latest
+#    restart: always
+#    environment:
+#      MYSQL_DATABASE_Name: 'adssystem'
+#      MYSQL_ROOT_PASSWORD: 'root'
+#    ports:
+#      - '3307:3306'
+#    expose:
+#      - '3306'
+#    volumes:
+#      - my-db:/var/lib/mysql
+### Names our volume
+##volumes:
+##  my-db:
+
+version: "3.8"
+
+services:
+  mysqldb:
+    image: mysql:latest
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=adssystem
+    ports:
+      - '3307:3306'
+    volumes:
+      - db:/var/lib/mysql
+  app:
+    depends_on:
+      - mysqldb
+    build: ./../AdventisDentistsSystem
+    ports:
+      - '8080:8080'
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url"  : "jdbc:mysql://127.0.0.1:3307/adssystem",
+        "spring.datasource.username" : "root",
+        "spring.datasource.password" : "root",
+        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQLDialect",
+        "spring.jpa.hibernate.ddl-auto" : "update"
+      }'
+    volumes:
+      - .m2:/root/.m2
+    stdin_open: true
+    tty: true
+
+volumes:
+  db:
